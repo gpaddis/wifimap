@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Wifimap
-  class Parser
+  module Parser
     # Parse the content of a dump file and return a hash of APs, stations and probes.
     def self.parse(_file_content)
       {
