@@ -2,9 +2,13 @@
 
 module Wifimap
   class Parser
-    # Parse the content of a dump file and return an array of wifimap objects.
+    # Parse the content of a dump file and return a hash of APs, stations and probes.
     def self.parse(_file_content)
-      []
+      {
+        access_points: [],
+        stations: [],
+        probes: []
+      }
     end
 
     # Check the file content and identify the dump format or raise an error.
