@@ -9,7 +9,9 @@ module Wifimap
 
     def self.dump_format(file_content)
       # TODO: perform thorough checks on file content.
-      raise Error unless file_content.include?('BSSID')
+      unless file_content.include?('BSSID')
+        raise Error, 'Unsupported dump format'
+      end
 
       'airodump'
     end

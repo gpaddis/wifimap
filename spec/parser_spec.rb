@@ -13,7 +13,7 @@ RSpec.describe Wifimap::Parser, '.dump_format' do
     expect(Wifimap::Parser.dump_format(airodump_file)).to eq('airodump')
   end
 
-  it 'raises an error if the dump format is unknown' do
-    expect { Wifimap::Parser.dump_format('invalid file content') }.to raise_error
+  it 'raises an error if the dump format is not supported' do
+    expect { Wifimap::Parser.dump_format('invalid file content') }.to raise_error('Unsupported dump format')
   end
 end
