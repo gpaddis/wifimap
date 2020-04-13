@@ -10,7 +10,7 @@ RSpec.describe Wifimap::Parser, '.dump_format' do
   let(:airodump_file) { File.read('spec/files/airodump.csv') }
 
   it 'identifies a valid airodump format' do
-    expect(Wifimap::Parser.dump_format(airodump_file)).to eq('airodump')
+    expect(Wifimap::Parser.dump_format(airodump_file)).to be(:airodump)
   end
 
   it 'raises an error if the dump format is not supported' do
