@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+require 'wifimap/parser'
+
 RSpec.describe Wifimap::Parser, '.parse' do
   let(:airodump_file) { File.read('spec/dumps/airodump.csv') }
 
