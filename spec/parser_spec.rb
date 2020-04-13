@@ -1,5 +1,5 @@
 RSpec.describe Wifimap::Parser, '.parse' do
-  let(:airodump_file) { File.read('spec/files/airodump.csv') }
+  let(:airodump_file) { File.read('spec/dumps/airodump.csv') }
 
   it 'returns an array with a valid airodump file' do
     expect(Wifimap::Parser.parse(airodump_file)).to be_an_instance_of(Array)
@@ -7,7 +7,7 @@ RSpec.describe Wifimap::Parser, '.parse' do
 end
 
 RSpec.describe Wifimap::Parser, '.dump_format' do
-  let(:airodump_file) { File.read('spec/files/airodump.csv') }
+  let(:airodump_file) { File.read('spec/dumps/airodump.csv') }
 
   it 'identifies a valid airodump format' do
     expect(Wifimap::Parser.dump_format(airodump_file)).to be(:airodump)
