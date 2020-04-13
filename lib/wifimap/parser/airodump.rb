@@ -27,6 +27,14 @@ module Wifimap
           Mac.valid?(fields.first) && power.negative?
         end
       end
+
+      # Get the list of probes from the dump.
+      def probes
+        stations.filter do |row|
+          fields = row.split(',')
+          !fields.last.strip.empty?
+        end
+      end
     end
   end
 end

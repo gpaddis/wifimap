@@ -17,4 +17,10 @@ RSpec.describe Wifimap::Parser::Airodump do
     expect(stations.count).to equal 5
     expect(stations).to be_an_instance_of(Array)
   end
+
+  it 'returns a list of probes' do
+    probes = airodump.probes
+    expect(probes.count).to equal 2
+    expect(probes).to be_an_instance_of(Array)
+  end
 end
