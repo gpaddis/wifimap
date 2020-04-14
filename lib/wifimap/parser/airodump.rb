@@ -12,10 +12,19 @@ module Wifimap
 
       # Get the list of access points from the dump.
       def access_points
-        @dump.split("\n").filter do |row|
+        aps = @dump.split("\n").filter do |row|
           fields = row.split(',')
           channel = fields[3].to_i
           Mac.valid?(fields.first) && channel.between?(1, 16)
+        end
+
+        aps.map do |ap|
+          fields = ap.split(',')
+          AccessPoint.new(
+            bssid: fields.first,
+            privacy: fields[5].strip,
+            essid: fields[13].strip
+          )
         end
       end
 
