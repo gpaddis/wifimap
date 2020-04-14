@@ -9,5 +9,10 @@ module Wifimap
       @privacy = privacy
       @essid = essid
     end
+
+    # Get the device manufacturer based on the bssid.
+    def manufacturer
+      Mac.manufacturer(bssid)
+    end
   end
 end

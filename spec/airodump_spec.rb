@@ -15,11 +15,12 @@ RSpec.describe Wifimap::Parser::Airodump do
       expect(access_points).to be_an_instance_of(Array)
     end
 
-    it 'maps the fields correctly' do
+    it 'maps the correct access point fields' do
       expect(access_points.first).to be_an_instance_of(Wifimap::AccessPoint)
       expect(access_points.first.bssid).to eq('04:F0:21:13:32:29')
       expect(access_points.first.privacy).to eq('OPN')
       expect(access_points.first.essid).to eq('Access Point 1')
+      expect(access_points.first.manufacturer).to eq('Compex Systems Pte Ltd')
     end
   end
 
