@@ -1,8 +1,8 @@
 # Wifimap
+[![Build Status](https://travis-ci.com/gpaddis/wifimap.svg?branch=master)](https://travis-ci.com/gpaddis/wifimap)
+[![Coverage Status](https://coveralls.io/repos/github/gpaddis/wifimap/badge.svg?branch=master)](https://coveralls.io/github/gpaddis/wifimap?branch=master)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/wifimap`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Parse wifi dump files and get a structured collection of access points and stations, including probes and associations (see [supported dump formats](#supported-dump-formats)). You can then import the formatted data into your application, e.g. to build a database or a map of wireless networks and clients.
 
 ## Installation
 
@@ -22,7 +22,39 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Require the parser pass the content of a dump file to the `parse` method:
+```rb
+require 'wifimap/parser'
+
+dump = File.read('airodump.csv')
+parsed = Wifimap::Parser.parse(dump)
+
+parsed.access_points  # returns an array of AccessPoint objects
+parsed.stations       # returns an array of Station objects
+```
+
+### Attributes
+
+An AccessPoint instance contains the following attributes:
+
+```rb
+access_point.bssid         # ex.: '04:F0:21:13:32:29'
+access_point.privacy       # ex.: 'WPA2'
+access_point.essid         # ex.: 'Home Network'
+access_point.manufacturer  # ex.: 'Compex Systems Pte Ltd'
+```
+
+A Station instance contains the following attributes:
+
+```rb
+station.mac           # ex.: 'AE:91:B5:23:87:9D'
+station.associations  # ex.: ['04:F0:21:13:32:29']
+station.probes        # ex.: ['Home Network']
+station.manufacturer  # ex.: 'Apple, Inc.'
+```
+
+### Supported dump formats
+- Airodump CSV ([airodump-ng](https://www.aircrack-ng.org/doku.php?id=airodump-ng))
 
 ## Development
 
@@ -32,7 +64,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/wifimap. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/wifimap/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/gpaddis/wifimap. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/wifimap/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## License
