@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Gianpiero Addis']
   spec.email         = ['gianpiero.addis@gmail.com']
 
-  spec.summary       = 'Parse wifi sniffer dump files to consistent objects.'
+  spec.summary       = 'Parse wifi sniffer dump files.'
   spec.homepage      = 'https://github.com/gpaddis/wifimap'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
