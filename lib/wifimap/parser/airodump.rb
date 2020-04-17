@@ -30,18 +30,15 @@ module Wifimap
 
       # Get the list of stations from the dump.
       def stations
-        @dump.split("\n").filter do |row|
+        stations = @dump.split("\n").filter do |row|
           fields = row.split(',')
           power = fields[3].to_i
           Mac.valid?(fields.first) && power.negative?
         end
-      end
 
-      # Get the list of probes from the dump.
-      def probes
-        stations.filter do |row|
-          fields = row.split(',')
-          !fields.last.strip.empty?
+        stations.map do |st|
+          fields = st.split(',')
+          Station.new(mac: fields.first)
         end
       end
     end

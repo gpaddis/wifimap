@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'wifimap/access_point'
+require 'wifimap/station'
 require 'wifimap/parser/airodump'
 
 RSpec.describe Wifimap::Parser::Airodump do
@@ -25,18 +26,18 @@ RSpec.describe Wifimap::Parser::Airodump do
   end
 
   describe '#stations' do
+    let(:stations) { airodump.stations }
+
     it 'returns a list of stations' do
-      stations = airodump.stations
-      expect(stations.count).to equal 5
+      expect(stations.count).to eq 5
       expect(stations).to be_an_instance_of(Array)
     end
-  end
 
-  describe '#probes' do
-    it 'returns a list of probes' do
-      probes = airodump.probes
-      expect(probes.count).to equal 2
-      expect(probes).to be_an_instance_of(Array)
+    it 'maps the correct station fields' do
+      expect(stations.count).to eq 5
+      expect(stations.first).to be_an_instance_of(Wifimap::Station)
+      expect(stations.last.mac).to eq('34:12:98:B3:D1:1B')
+      expect(stations.last.manufacturer).to eq('Apple, Inc.')
     end
   end
 end
