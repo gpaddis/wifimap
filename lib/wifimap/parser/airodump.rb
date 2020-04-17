@@ -39,9 +39,12 @@ module Wifimap
         stations.map do |row|
           fields = row.split(',')
           station = Station.new(mac: fields.first)
-          unless fields[5].include?('(not associated')
+          unless fields[5].include?('(not associated)')
             station.associations << fields[5].strip
           end
+
+          station.probes << fields[6].strip unless fields[6].strip.empty?
+
           station
         end
       end

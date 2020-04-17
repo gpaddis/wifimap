@@ -50,5 +50,16 @@ RSpec.describe Wifimap::Parser::Airodump do
         expect(stations.first.associations).to be_empty
       end
     end
+
+    describe 'probes' do
+      it 'lists the probed ESSIDs' do
+        expect(stations.last.probes).to be_an_instance_of(Array)
+        expect(stations.last.probes).to include('Access Point 3')
+      end
+
+      it 'returns an empty array if the station has no probes' do
+        expect(stations.first.probes).to be_empty
+      end
+    end
   end
 end
