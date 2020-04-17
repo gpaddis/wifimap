@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'wifimap/mac'
+require 'wifimap/station'
+require 'wifimap/access_point'
 
 module Wifimap
   module Parser
