@@ -39,5 +39,16 @@ RSpec.describe Wifimap::Parser::Airodump do
       expect(stations.last.mac).to eq('34:12:98:B3:D1:1B')
       expect(stations.last.manufacturer).to eq('Apple, Inc.')
     end
+
+    describe 'associations' do
+      it 'lists the associated access point BSSIDs' do
+        expect(stations.last.associations).to be_an_instance_of(Array)
+        expect(stations.last.associations).to include('5C:2E:59:3B:15:73')
+      end
+
+      it 'returns an empty array if the station is not associated with an access point' do
+        expect(stations.first.associations).to be_empty
+      end
+    end
   end
 end

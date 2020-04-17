@@ -36,9 +36,13 @@ module Wifimap
           Mac.valid?(fields.first) && power.negative?
         end
 
-        stations.map do |st|
-          fields = st.split(',')
-          Station.new(mac: fields.first)
+        stations.map do |row|
+          fields = row.split(',')
+          station = Station.new(mac: fields.first)
+          unless fields[5].include?('(not associated')
+            station.associations << fields[5].strip
+          end
+          station
         end
       end
     end
