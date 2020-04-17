@@ -23,6 +23,8 @@ Or install it yourself as:
 
 Require the parser pass the content of a dump file to the `parse` method:
 ```rb
+require 'wifimap/parser'
+
 dump = File.read('airodump.csv')
 parsed = Wifimap::Parser.parse(dump)
 
