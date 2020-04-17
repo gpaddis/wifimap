@@ -1,5 +1,6 @@
 # Wifimap
 [![Build Status](https://travis-ci.com/gpaddis/wifimap.svg?branch=develop)](https://travis-ci.com/gpaddis/wifimap)
+[![Coverage Status](https://coveralls.io/repos/github/gpaddis/wifimap/badge.svg?branch=develop)](https://coveralls.io/github/gpaddis/wifimap?branch=develop)
 
 Parse wifi dump files and get a structured collection of access points and stations, including probes and associations (see [supported dump formats](#supported-dump-formats)). You can then import the formatted data into your application, e.g. to build a database or a map of wireless networks and clients.
 
