@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-Require the parser pass the content of a dump file to the `parse` method:
+Require the parser and pass the content of a dump file to the `parse` method:
 ```rb
 require 'wifimap/parser'
 
