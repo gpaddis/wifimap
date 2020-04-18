@@ -10,10 +10,16 @@ end
 
 RSpec.describe Wifimap, '.parse' do
   let(:airodump_file) { File.read('spec/dumps/airodump.csv') }
+  let(:sniff_probes_file) { File.read('spec/dumps/sniff-probes.txt') }
 
   it 'returns an airodump parser instance' do
     result = Wifimap.parse(airodump_file)
     expect(result).to be_an_instance_of(Wifimap::Parser::Airodump)
+  end
+
+  it 'returns a sniff-probes parser instance' do
+    result = Wifimap.parse(sniff_probes_file)
+    expect(result).to be_an_instance_of(Wifimap::Parser::SniffProbes)
   end
 
   it 'raises an error if the dump format is not supported' do

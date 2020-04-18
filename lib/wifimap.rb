@@ -12,6 +12,8 @@ module Wifimap
     case Wifimap::Parser.dump_format(file_content)
     when :airodump
       Wifimap::Parser::Airodump.new(file_content)
+    when :sniff_probes
+      Wifimap::Parser::SniffProbes.new(file_content)
     else
       raise Error, 'Unsupported dump format'
     end

@@ -57,6 +57,7 @@ station.manufacturer  # ex.: 'Apple, Inc.'
 
 ### Supported dump formats
 - Airodump CSV ([airodump-ng](https://www.aircrack-ng.org/doku.php?id=airodump-ng))
+- Sniff Probes ([sniff-probes](https://github.com/brannondorsey/sniff-probes))
 
 ## Development
 
