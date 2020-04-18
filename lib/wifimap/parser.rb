@@ -1,22 +1,29 @@
 # frozen_string_literal: true
 
-require 'wifimap/parser/airodump'
+require 'wifimap/mac'
 
 module Wifimap
   module Parser
-    # Parse the content of a dump file and return a hash of APs, stations and probes.
-    def self.parse(file_content)
-      case dump_format(file_content)
-      when :airodump
-        Wifimap::Parser::Airodump.new(file_content)
-      else
-        raise Error, 'Unsupported dump format'
-      end
+    # Check the file content and identify the correct dump format.
+    def self.dump_format(file_content)
+      return :airodump if airodump_format?(file_content)
+      return :sniff_probes if sniff_probes_format?(file_content)
     end
 
-    # Check the file content and identify the dump format.
-    def self.dump_format(file_content)
-      airodump_header = 'BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power'
-      :airodump if file_content.include?(airodump_header)    end
+    class << self
+      private
+
+      def airodump_format?(file_content)
+        airodump_header = 'BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power'
+        file_content.include?(airodump_header)
+      end
+
+      def sniff_probes_format?(file_content)
+        file_content.split("\n").all? do |row|
+          fields = row.split
+          fields[1].include?('dBm') && Wifimap::Mac.valid?(fields[2])
+        end
+      end
+    end
   end
 end
