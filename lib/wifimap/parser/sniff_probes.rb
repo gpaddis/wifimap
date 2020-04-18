@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'wifimap/mac'
 require 'wifimap/station'
 
 module Wifimap
@@ -16,8 +15,6 @@ module Wifimap
 
       # Get the list of stations from the dump.
       def stations
-        rows = @dump.split("\n")
-        unique_macs = rows.map { |row| row.split[2] }.uniq
         unique_macs.map do |mac|
           station = Station.new(mac: mac)
           rows.each do |row|
@@ -28,6 +25,18 @@ module Wifimap
           end
           station
         end
+      end
+
+      private
+
+      # Return an array of lines from the dump content.
+      def rows
+        @dump.split("\n")
+      end
+
+      # Return all unique mac addresses.
+      def unique_macs
+        rows.map { |row| row.split[2] }.uniq
       end
     end
   end
