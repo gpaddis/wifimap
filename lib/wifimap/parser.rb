@@ -18,7 +18,7 @@ module Wifimap
 
     def self.sniff_probes_format?(file_content)
       file_content.split('\n').all? do |row|
-        fields = row.split(' ')
+        fields = row.split
         fields[1].include?('dBm') && Wifimap::Mac.valid?(fields[2])
       end
     end
