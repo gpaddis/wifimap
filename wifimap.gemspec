@@ -6,7 +6,6 @@ Gem::Specification.new do |spec|
   spec.name          = 'wifimap'
   spec.version       = Wifimap::VERSION
   spec.authors       = ['Gianpiero Addis']
-  spec.email         = ['gianpiero.addis@gmail.com']
 
   spec.summary       = 'Parse wifi sniffer dump files.'
   spec.homepage      = 'https://github.com/gpaddis/wifimap'
