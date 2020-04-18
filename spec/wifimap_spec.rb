@@ -29,15 +29,3 @@ RSpec.describe Wifimap, '.parse_file' do
     expect(parsed_file.stations.first.mac).to eql(parsed_content.stations.first.mac) # Sample attribute.
   end
 end
-
-RSpec.describe Wifimap, '.dump_format' do
-  let(:airodump_file) { File.read('spec/dumps/airodump.csv') }
-
-  it 'identifies a valid airodump format' do
-    expect(Wifimap.dump_format(airodump_file)).to be(:airodump)
-  end
-
-  it 'returns nil with an invalid dump format' do
-    expect(Wifimap.dump_format('invalid file content')).to be_nil
-  end
-end
