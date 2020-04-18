@@ -22,12 +22,12 @@ Or install it yourself as:
 
 ## Usage
 
-Require the parser and pass the content of a dump file to the `parse` method:
+Require wifimap and pass the content of a dump file to the `parse` method:
 ```rb
-require 'wifimap/parser'
+require 'wifimap'
 
 dump = File.read('airodump.csv')
-parsed = Wifimap::Parser.parse(dump)
+parsed = Wifimap.parse(dump)
 
 parsed.access_points  # returns an array of AccessPoint objects
 parsed.stations       # returns an array of Station objects
