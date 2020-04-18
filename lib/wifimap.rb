@@ -3,6 +3,7 @@
 require 'wifimap/version'
 require 'wifimap/parser'
 require 'wifimap/parser/airodump'
+require 'wifimap/parser/sniff_probes'
 
 module Wifimap
   class Error < StandardError; end

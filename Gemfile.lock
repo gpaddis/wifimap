@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    wifimap (0.2.0)
+    wifimap (0.2.1)
       louis
 
 GEM
