@@ -21,6 +21,15 @@ RSpec.describe Wifimap, '.parse' do
   end
 end
 
+RSpec.describe Wifimap, '.parse_file' do
+  it 'reads the contents of a file and parses it' do
+    airodump_file = 'spec/dumps/airodump.csv'
+    parsed_file = Wifimap.parse_file(airodump_file)
+    parsed_content = Wifimap.parse(File.read(airodump_file))
+    expect(parsed_file.stations.first.mac).to eql(parsed_content.stations.first.mac) # Sample attribute.
+  end
+end
+
 RSpec.describe Wifimap, '.dump_format' do
   let(:airodump_file) { File.read('spec/dumps/airodump.csv') }
 

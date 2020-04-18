@@ -28,6 +28,8 @@ require 'wifimap'
 
 dump = File.read('airodump.csv')
 parsed = Wifimap.parse(dump)
+# Alternative:
+# parsed = Wifimap.parse_file('airodump.csv')
 
 parsed.access_points  # returns an array of AccessPoint objects
 parsed.stations       # returns an array of Station objects

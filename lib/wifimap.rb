@@ -16,6 +16,12 @@ module Wifimap
     end
   end
 
+  # A wrapper on .parse to read directly from a file.
+  def self.parse_file(filename)
+    file_content = File.read(filename)
+    parse(file_content)
+  end
+
   # Check the file content and identify the dump format.
   def self.dump_format(file_content)
     airodump_header = 'BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power'
