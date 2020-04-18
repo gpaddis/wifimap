@@ -22,7 +22,9 @@ module Wifimap
           station = Station.new(mac: mac)
           rows.each do |row|
             fields = row.split('"')
-            station.probes << fields[1] if fields[0].include?(mac)
+            unless station.probes.include?(fields[1])
+              station.probes << fields[1] if fields[0].include?(mac)
+            end
           end
           station
         end
