@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module Wifimap
+  # The parsable module contains some helper methods and must-implement
+  # directives for parser classes.
   module Parsable
     # Get the dump property for further processing.
     def dump
