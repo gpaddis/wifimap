@@ -35,7 +35,7 @@ module Wifimap
 
       # Get the list of stations from the dump.
       def stations
-        stations = rows.each.filter do |row|
+        stations = rows.select do |row|
           fields = row.split(',')
           power = fields[3].to_i
           Mac.valid?(fields.first) && power.negative?
