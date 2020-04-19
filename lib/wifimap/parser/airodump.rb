@@ -17,7 +17,7 @@ module Wifimap
 
       # Get the list of access points from the dump.
       def access_points
-        aps = each_row.filter do |row|
+        aps = rows.each.filter do |row|
           fields = row.split(',')
           channel = fields[3].to_i
           Mac.valid?(fields.first) && channel.between?(1, 16)
@@ -35,7 +35,7 @@ module Wifimap
 
       # Get the list of stations from the dump.
       def stations
-        stations = each_row.filter do |row|
+        stations = rows.each.filter do |row|
           fields = row.split(',')
           power = fields[3].to_i
           Mac.valid?(fields.first) && power.negative?

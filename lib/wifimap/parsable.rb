@@ -9,9 +9,9 @@ module Wifimap
       @dump
     end
 
-    # Get an enumerator with each row in the dump.
-    def each_row
-      dump.split("\n").each
+    # Get an array of all rows in the dump.
+    def rows
+      dump.split("\n")
     end
 
     # To be implemented in the class.

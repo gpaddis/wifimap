@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
 require 'wifimap/station'
+require 'wifimap/parsable'
 
 module Wifimap
   module Parser
     # Parse the content of a sniff-probes file.
     class SniffProbes
+      include Wifimap::Parsable
+
       attr_reader :access_points
 
       def initialize(dump)
@@ -28,11 +31,6 @@ module Wifimap
       end
 
       private
-
-      # Return an array of lines from the dump content.
-      def rows
-        @dump.split("\n")
-      end
 
       # Return all unique mac addresses.
       def unique_macs
