@@ -18,19 +18,24 @@ module Wifimap
       end
 
       # Check the file content and identify the correct dump format.
+      #
+      # @param [String] file_content
+      # @return [Symbol|Nil]
       def dump_format(file_content)
         return :airodump if airodump_format?(file_content)
         return :sniff_probes if sniff_probes_format?(file_content)
       end
 
-      private
-
-      def airodump_format?(file_content)
+      # @param [String] file_content
+      # @return [Boolean]
+      private def airodump_format?(file_content)
         airodump_header = 'BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power'
         file_content.include?(airodump_header)
       end
 
-      def sniff_probes_format?(file_content)
+      # @param [String] file_content
+      # @return [Boolean]
+      private def sniff_probes_format?(file_content)
         file_content.split("\n").all? do |row|
           fields = row.split
           fields[1].include?('dBm') && Wifimap::Mac.valid?(fields[2])
