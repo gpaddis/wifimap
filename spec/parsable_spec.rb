@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'wifimap/parsable'
 
 class CorrectParserImplementation
@@ -8,11 +10,11 @@ class CorrectParserImplementation
   end
 
   def stations
-    rows.each.map { |row| "Current station: #{row}"}
+    rows.each.map { |row| "Current station: #{row}" }
   end
 
   def access_points
-    rows.each.map { |row| "Current access_point: #{row}"}
+    rows.each.map { |row| "Current access_point: #{row}" }
   end
 end
 
@@ -21,7 +23,7 @@ class WrongParserImplementation
 end
 
 RSpec.describe Wifimap::Parsable do
-  let(:correct_parser) { CorrectParserImplementation.new("a\nb\nc\nd\ne")}
+  let(:correct_parser) { CorrectParserImplementation.new("a\nb\nc\nd\ne") }
   let(:wrong_parser) { WrongParserImplementation.new }
 
   describe '#dump' do

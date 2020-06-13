@@ -14,7 +14,6 @@ RSpec.describe Wifimap::Parser::SniffProbes do
       expect(access_points).to be_empty
       expect(access_points).to be_an_instance_of(Array)
     end
-
   end
 
   describe '#stations' do

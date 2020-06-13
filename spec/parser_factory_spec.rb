@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'wifimap/parser_factory'
 
 RSpec.describe Wifimap::ParserFactory, '.dump_format' do
