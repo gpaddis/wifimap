@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'wifimap/station'
-require 'wifimap/parsable'
-
 module Wifimap
   module Parser
     # Parse the content of a sniff-probes file.

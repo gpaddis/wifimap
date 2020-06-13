@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'wifimap/parsable'
-
 class CorrectParserImplementation
   include Wifimap::Parsable
 

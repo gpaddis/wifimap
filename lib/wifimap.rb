@@ -1,7 +1,14 @@
 # frozen_string_literal: true
 
-require 'wifimap/version'
+require 'wifimap/access_point'
+require 'wifimap/mac'
+require 'wifimap/parsable'
 require 'wifimap/parser_factory'
+require 'wifimap/station'
+require 'wifimap/version'
+
+require 'wifimap/parser/airodump'
+require 'wifimap/parser/sniff_probes'
 
 module Wifimap
   class Error < StandardError; end

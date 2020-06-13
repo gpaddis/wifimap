@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require 'wifimap/mac'
-require 'wifimap/parser/airodump'
-require 'wifimap/parser/sniff_probes'
-
 module Wifimap
   # Instantiate the correct parser class according to the dump format.
   module ParserFactory

@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require 'wifimap/mac'
-require 'wifimap/parsable'
-require 'wifimap/station'
-require 'wifimap/access_point'
-
 module Wifimap
   module Parser
     # Parse the content of an airodump.csv file.

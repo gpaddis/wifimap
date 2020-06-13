@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'wifimap/parser_factory'
-
 RSpec.describe Wifimap::ParserFactory, '.dump_format' do
   it 'identifies a valid airodump format' do
     airodump_file = File.read('spec/dumps/airodump.csv')

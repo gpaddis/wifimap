@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
-require 'wifimap/access_point'
-require 'wifimap/station'
-require 'wifimap/parser/airodump'
-
 RSpec.describe Wifimap::Parser::Airodump do
   let(:airodump_file) { File.read('spec/dumps/airodump.csv') }
-  let(:airodump) { Wifimap::Parser::Airodump.new(airodump_file) }
+  let(:airodump) { described_class.new(airodump_file) }
 
   describe '#access_points' do
     let(:access_points) { airodump.access_points }
