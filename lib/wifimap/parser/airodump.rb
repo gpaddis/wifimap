@@ -11,6 +11,8 @@ module Wifimap
       end
 
       # Get the list of access points from the dump.
+      #
+      # @return [Array] of Wifimap::AccessPoint
       def access_points
         aps = rows.each.filter do |row|
           fields = row.split(',')
@@ -29,6 +31,8 @@ module Wifimap
       end
 
       # Get the list of stations from the dump.
+      #
+      # @return [Array] of Wifimap::Station
       def stations
         stations = rows.select do |row|
           fields = row.split(',')
