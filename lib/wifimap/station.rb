@@ -5,6 +5,7 @@ module Wifimap
     attr_reader :mac
     attr_accessor :associations, :probes
 
+    # @param [String] mac
     def initialize(mac:)
       @mac = mac
       @associations = []
@@ -12,6 +13,8 @@ module Wifimap
     end
 
     # Get the device manufacturer based on the mac.
+    #
+    # @return [String]
     def manufacturer
       Mac.manufacturer(mac)
     end

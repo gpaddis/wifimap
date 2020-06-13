@@ -12,6 +12,8 @@ module Wifimap
     end
 
     # Get an array of all rows in the dump.
+    #
+    # @return [Array]
     def rows
       dump.split("\n")
     end
