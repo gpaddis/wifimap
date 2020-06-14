@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'wifimap/mac'
-
 RSpec.describe Wifimap::Mac, '.valid?' do
   it 'returns true with valid MAC addresses' do
     expect(Wifimap::Mac.valid?('04:F0:21:13:32:29')).to be true

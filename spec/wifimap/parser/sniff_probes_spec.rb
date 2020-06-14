@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
-require 'wifimap/access_point'
-require 'wifimap/station'
-require 'wifimap/parser/sniff_probes'
-
 RSpec.describe Wifimap::Parser::SniffProbes do
   let(:sniff_probes_file) { File.read('spec/dumps/sniff-probes.txt') }
-  let(:sniff_probes) { Wifimap::Parser::SniffProbes.new(sniff_probes_file) }
+  let(:sniff_probes) { described_class.new(sniff_probes_file) }
 
   describe '#access_points' do
     it 'returns an empty list of access points' do
@@ -14,7 +10,6 @@ RSpec.describe Wifimap::Parser::SniffProbes do
       expect(access_points).to be_empty
       expect(access_points).to be_an_instance_of(Array)
     end
-
   end
 
   describe '#stations' do

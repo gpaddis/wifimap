@@ -11,6 +11,8 @@ module Wifimap
     end
 
     # Get the device manufacturer based on the bssid.
+    #
+    # @return [String]
     def manufacturer
       Mac.manufacturer(bssid)
     end

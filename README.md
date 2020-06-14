@@ -1,4 +1,5 @@
 # Wifimap
+
 [![Build Status](https://travis-ci.com/gpaddis/wifimap.svg?branch=master)](https://travis-ci.com/gpaddis/wifimap)
 [![Coverage Status](https://coveralls.io/repos/github/gpaddis/wifimap/badge.svg?branch=master)](https://coveralls.io/github/gpaddis/wifimap?branch=master)
 
@@ -67,13 +68,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/gpaddis/wifimap. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/wifimap/blob/master/CODE_OF_CONDUCT.md).
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/gpaddis/wifimap.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Wifimap project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/wifimap/blob/master/CODE_OF_CONDUCT.md).
