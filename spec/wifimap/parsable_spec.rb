@@ -8,11 +8,11 @@ class CorrectParserImplementation
   end
 
   def stations
-    rows.each.map { |row| "Current station: #{row}" }
+    dump_rows.map { |row| "Current station: #{row}" }
   end
 
   def access_points
-    rows.each.map { |row| "Current access_point: #{row}" }
+    dump_rows.map { |row| "Current access_point: #{row}" }
   end
 end
 
@@ -30,9 +30,9 @@ RSpec.describe Wifimap::Parsable do
     end
   end
 
-  describe '#rows' do
+  describe '#dump_rows' do
     it 'returns a array with all rows' do
-      expect(correct_parser.rows.count).to eq 5
+      expect(correct_parser.dump_rows.count).to eq 5
     end
   end
 

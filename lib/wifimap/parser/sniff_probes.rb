@@ -20,7 +20,7 @@ module Wifimap
       def stations
         unique_macs.map do |mac|
           station = Station.new(mac: mac)
-          rows.each do |row|
+          dump_rows.each do |row|
             fields = row.split('"')
             unless station.probes.include?(fields[1])
               station.probes << fields[1] if fields[0].include?(mac)
@@ -34,7 +34,7 @@ module Wifimap
       #
       # @return [Array]
       private def unique_macs
-        rows.map { |row| row.split[2] }.uniq
+        dump_rows.map { |row| row.split[2] }.uniq
       end
     end
   end

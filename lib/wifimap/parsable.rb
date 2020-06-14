@@ -5,16 +5,18 @@ module Wifimap
   # directives for parser classes.
   module Parsable
     # Get the dump property for further processing.
+    #
+    # @return [String]
     def dump
       raise 'Error: the dump is empty' if @dump.nil?
 
       @dump
     end
 
-    # Get an array of all rows in the dump.
+    # Split the dump by newline to get an array of all rows.
     #
     # @return [Array]
-    def rows
+    def dump_rows
       dump.split("\n")
     end
 
