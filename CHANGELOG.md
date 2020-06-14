@@ -1,3 +1,6 @@
+# v0.2.2
+- Refactoring.
+
 # v0.2.1
 - Fix bug with sniff-probes parse method.
 
